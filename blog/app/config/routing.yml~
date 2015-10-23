@@ -1,0 +1,3 @@
+llafon_blog:
+    resource: "@LlafonBlogBundle/Controller/"
+    type:   annotation

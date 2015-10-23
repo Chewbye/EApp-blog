@@ -1,0 +1,5 @@
+{% extends 'LlafonBlogBundle::base.html.twig' %}
+
+{% block title %} Accueil - {{ parent() }} {% endblock %}
+
+{% block body %} Mon body {% endblock %}

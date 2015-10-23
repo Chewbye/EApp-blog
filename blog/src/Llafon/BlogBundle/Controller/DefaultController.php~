@@ -1,0 +1,26 @@
+<?php
+
+namespace Llafon\BlogBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
+
+class DefaultController extends Controller
+{
+    /**
+     * @Route("/", name="blog_homepage")
+     */
+    public function indexAction()
+    {
+        return $this->render('LlafonBlogBundle:Default:index.html.twig');
+    }
+
+    /**
+     * @Route("/post/{name}", name="blog_postpage")
+     */
+    public function postAction($name)
+    {
+        return $this->render('LlafonBlogBundle:Default:post.html.twig', array('name' => $name));
+    }
+}
