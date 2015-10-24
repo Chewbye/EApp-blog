@@ -2,4 +2,8 @@
 
 {% block title %} Accueil - {{ parent() }} {% endblock %}
 
-{% block body %} Mon body {% endblock %}
+{% block body %} 
+    {% for post in posts %}
+        {% include 'LlafonBlogBundle::Blog/postTemplate.html.twig' with {'post_title': post.getTitle(), 'post_author': post.getAuthor(), 'post_date': post.getDateString(), 'post_image': post.getImageName(), 'post_content': post.getContent()} %}
+    {% endfor %}
+{% endblock %}

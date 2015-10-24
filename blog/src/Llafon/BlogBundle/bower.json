@@ -1,0 +1,19 @@
+{
+  "name": "acme",
+  "version": "1.0.0",
+  "description": "ACME demo application",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "underscore": "~1.5.2",
+    "bootstrap": "~3.3.5"
+  }
+}

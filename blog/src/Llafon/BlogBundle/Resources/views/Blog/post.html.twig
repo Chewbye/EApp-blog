@@ -1,1 +1,7 @@
-Hello {{ name }}!
+{% extends 'LlafonBlogBundle::base.html.twig' %}
+
+{% block title %} {{post.title}} - {{ parent() }} {% endblock %}
+
+{% block body %} 
+   {% include 'LlafonBlogBundle::Blog/postTemplate.html.twig' with {'post_title': post.getTitle(), 'post_author': post.getAuthor(), 'post_date': post.getDateString(), 'post_image': post.getImageName(), 'post_content': post.getContent()} %}
+{% endblock %}
