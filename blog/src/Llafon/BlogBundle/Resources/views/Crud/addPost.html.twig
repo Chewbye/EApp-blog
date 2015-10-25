@@ -1,0 +1,10 @@
+{% extends 'LlafonBlogBundle::crud_base.html.twig' %}
+
+{% block title %} Ajout Article - {{ parent() }} {% endblock %}
+{% block body_title %} Articles <small>Création</small> {% endblock %}
+
+{% block body %}
+    <div class="well">
+  {{ form(form) }}
+</div>
+{% endblock %}

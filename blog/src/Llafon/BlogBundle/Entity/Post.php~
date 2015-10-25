@@ -32,7 +32,8 @@ class Post {
     protected $date;   
     
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */
     protected $author;
     
@@ -55,29 +56,6 @@ class Post {
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Post
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Set content
@@ -150,15 +128,25 @@ class Post {
     {
         return $this->date;
     }
+    
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDateString($format = 'Y-m-d H:i:s')
+    {
+        return $this->date->format($format);
+    }
 
     /**
      * Set author
      *
-     * @param \author $author
+     * @param integer $author
      *
      * @return Post
      */
-    public function setAuthor(\author $author)
+    public function setAuthor($author)
     {
         $this->author = $author;
 
@@ -168,7 +156,7 @@ class Post {
     /**
      * Get author
      *
-     * @return \author
+     * @return integer
      */
     public function getAuthor()
     {
@@ -178,11 +166,11 @@ class Post {
     /**
      * Set imageName
      *
-     * @param \author $imageName
+     * @param integer $imageName
      *
      * @return Post
      */
-    public function setImageName(\author $imageName)
+    public function setImageName($imageName)
     {
         $this->image_name = $imageName;
 

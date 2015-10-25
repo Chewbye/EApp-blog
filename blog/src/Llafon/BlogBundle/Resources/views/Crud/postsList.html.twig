@@ -1,0 +1,49 @@
+{% extends 'LlafonBlogBundle::crud_base.html.twig' %}
+
+{% block title %} Articles - {{ parent() }} {% endblock %}
+{% block body_title %} Articles <small>Liste</small> {% endblock %}
+
+
+{% block body %}
+    {# total items count #}
+    <div class="count">
+        {{ pagination.getTotalItemCount }} Articles publiés
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>{{ knp_pagination_sortable(pagination, '#', 'id') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Titre', 'title') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Date', 'date') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Créateur', 'author') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Contenu', 'content') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in pagination %}
+                    <tr>
+                        <td> {{ post.getId() }} </td>
+                        <td> {{ post.getTitle() }} </td>
+                        <td> {{ post.getDateString() }} </td>
+                        <td> {{ post.getAuthor() }} </td>
+                        <td> {{ post.getContent() }} </td>
+                        <td> 
+                            <a href="#">
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span> Remove 
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

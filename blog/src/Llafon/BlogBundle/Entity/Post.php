@@ -32,7 +32,8 @@ class Post {
     protected $date;   
     
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="author", referencedColumnName="id")
      */
     protected $author;
     
