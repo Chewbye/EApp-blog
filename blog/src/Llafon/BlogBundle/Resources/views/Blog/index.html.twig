@@ -4,7 +4,7 @@
 
 {% block body %} 
     {% for post in pagination %}
-        {% include 'LlafonBlogBundle::Blog/postTemplate.html.twig' with {'post_title': post.getTitle(), 'post_author': post.getAuthor(), 'post_date': post.getDateString(), 'post_image': post.getImageName(), 'post_content': post.getContent()} %}
+        {% include 'LlafonBlogBundle::Blog/postTemplate.html.twig' with {'post_id': post.getId(), 'post_title': post.getTitle(), 'post_author': post.getAuthor(), 'post_date': post.getDateString(), 'post_image': post.getImageName(), 'post_content': post.getContent()} %}
     {% endfor %}
     
     {# display navigation #}

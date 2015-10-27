@@ -17,19 +17,17 @@
                     <th>{{ knp_pagination_sortable(pagination, 'Titre', 'title') }}</th>
                     <th>{{ knp_pagination_sortable(pagination, 'Date', 'date') }}</th>
                     <th>{{ knp_pagination_sortable(pagination, 'Créateur', 'author') }}</th>
-                    <th>{{ knp_pagination_sortable(pagination, 'Contenu', 'content') }}</th>
                 </tr>
             </thead>
             <tbody>
                 {% for post in pagination %}
                     <tr>
                         <td> {{ post.getId() }} </td>
-                        <td> {{ post.getTitle() }} </td>
+                        <td> <a href="{{ path('admin_editpost', {'postid': post.getId()}) }}">{{ post.getTitle() }}</a> </td>
                         <td> {{ post.getDateString() }} </td>
                         <td> {{ post.getAuthor() }} </td>
-                        <td> {{ post.getContent() }} </td>
                         <td> 
-                            <a href="#">
+                            <a href="{{ path('admin_remove_post', {'postid': post.getId()}) }}">
                                 <button type="button" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-remove"></span> Remove 
                                 </button>

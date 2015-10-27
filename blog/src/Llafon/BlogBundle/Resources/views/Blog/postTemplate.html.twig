@@ -1,27 +1,28 @@
 <!-- Blog Post -->
 <!-- Title -->
-<h1>{{ post_title }}</h1>
+<h1 class="jqmaintitle">{{ post_title }}</h1>
 
 <!-- Author -->
 <p class="lead">
-    by <a href="#">{{ post_author }}</a>
+    par <a href="#">{{ post_author }}</a> <span class="pull-right"><span class="glyphicon glyphicon-time"></span> {{ post_date }}</span>
 </p>
-
-<hr>
-
-<!-- Date/Time -->
-<p><span class="glyphicon glyphicon-time"></span> {{ post_date }}</p>
-
 <hr>
 
 <!-- Preview Image -->
-<img class="img-responsive" src="{{ post_image }}" alt="">
-
+<div class="img_container">
+    <img class="img-responsive" src="/bundles/llafonblog/postimages/{{ post_image }}" alt="">
+</div>
 <hr>
 
 <!-- Post Content -->
 <div>
-    {{ post_content }}
+    {% if (post_content|length) > 50 and app.request.attributes.get('_route')=='blog_homepage'  %}
+        {{ (post_content|slice(0, 50) ~ '...') |nl2br }}
+        <a href="{{ path('blog_postpage', {'id': post_id}) }}"> Lire la suite </a>
+    {% else %}
+        {{ (post_content|nl2br) }}
+    {% endif %}
+    
 </div>
 
 <hr>

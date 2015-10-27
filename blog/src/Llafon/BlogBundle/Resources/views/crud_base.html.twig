@@ -32,7 +32,6 @@
     <body>
 
         <div id="wrapper">
-
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,6 +46,9 @@
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
+                    <li>
+                        <a href="{{ path('blog_homepage') }}" target="_blank">Voir le site</a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ app.user.username }} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -63,10 +65,10 @@
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li class="active">
-                            <a href="tables.html"><i class="fa fa-fw fa-table"></i> Liste des articles</a>
+                        <li class="{% if app.request.attributes.get('_route') == 'crud_homepage' %}active{% endif %}">
+                            <a href="{{ path('crud_homepage') }}"><i class="fa fa-fw fa-table"></i> Liste des articles</a>
                         </li>
-                        <li>
+                        <li class="{% if app.request.attributes.get('_route') == 'admin_addpost' %}active{% endif %}">
                             <a href="{{ path('admin_addpost') }}"><i class="fa fa-fw fa-edit"></i> Ajouter un article</a>
                         </li>
                     </ul>
@@ -77,7 +79,27 @@
             <div id="page-wrapper">
 
                 <div class="container-fluid">
-
+                    <!-- Page Messages -->
+                    <div class="row">
+                    {% for message in app.session.flashbag.get('notice') %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                    {% for message in app.session.flashbag.get('error') %}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                    </div>
                     <!-- Page Heading -->
                     <div class="row">
                         <div class="col-lg-12">
