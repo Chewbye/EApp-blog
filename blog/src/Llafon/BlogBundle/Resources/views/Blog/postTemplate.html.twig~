@@ -4,13 +4,13 @@
 
 <!-- Author -->
 <p class="lead">
-    par <a href="{{ path('fos_user_profile_show') }}">{{ post_author }}</a> <span class="pull-right"><span class="glyphicon glyphicon-time"></span> {{ post_date }}</span>
+    par {{ post_author }} <span class="pull-right"><span class="glyphicon glyphicon-time"></span> {{ post_date }}</span>
 </p>
 <hr>
 
 <!-- Preview Image -->
 <div class="img_container">
-    <img class="img-responsive" src="/bundles/llafonblog/postimages/{{ post_image }}" alt="">
+    <img class="img-responsive" src="/bundles/llafonblog/postimages/{{ post_image }}" alt="" />
 </div>
 <hr>
 

@@ -17,7 +17,6 @@
                     <th>{{ knp_pagination_sortable(pagination, 'Titre', 'title') }}</th>
                     <th>{{ knp_pagination_sortable(pagination, 'Date', 'date') }}</th>
                     <th>{{ knp_pagination_sortable(pagination, 'Créateur', 'author') }}</th>
-		    <th></th>
                 </tr>
             </thead>
             <tbody>
