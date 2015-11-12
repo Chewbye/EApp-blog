@@ -4,7 +4,7 @@
 
 <!-- Author -->
 <p class="lead">
-    par {{ post_author }} <span class="pull-right"><span class="glyphicon glyphicon-time"></span> {{ post_date }}</span>
+    par <a href="{{ path('fos_user_profile_show') }}">{{ post_author }}</a> <span class="pull-right"><span class="glyphicon glyphicon-time"></span> {{ post_date }}</span>
 </p>
 <hr>
 

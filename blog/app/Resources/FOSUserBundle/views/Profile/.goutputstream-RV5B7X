@@ -1,0 +1,15 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="fos_user_user_show">
+		    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+		    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+		</div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
